@@ -9,12 +9,10 @@ vote_average
 
 const API_KEY = "7f1f1402996361135b864d977d5871b8";
 
-fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=7f1f1402996361135b864d977d5871b8&language=fr-FR&page=1`, {
+fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=fr&page=1`, {
         method: "GET"
     })
-    .then((response) => {
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
 
         console.log(data); // <- {id: number, name: string}[]
@@ -25,6 +23,88 @@ fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=7f1f1402996361135b86
             let overview = element.overview;
             let posterPath = element.poster_path;
             let voteAverage = element.vote_average;
+            let movie_id = element.id;
+            console.table(`https://api.themoviedb.org/3/movie/238/alternative_titles?api_key=${API_KEY}&country=fr`)
+            
+            if (voteAverage >= 0 && voteAverage <= 1) {
+                voteStars = `
+                <div class="row">
+                    <div class="col-2"><img class="stars" src="public/assets/img/starHalf.svg"></div>
+                </div>`;
+            }
+            else if (voteAverage > 1 && voteAverage <= 2) {
+                voteStars = `
+                <div class="row">
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                </div>`;
+            }
+            else if (voteAverage >2 && voteAverage <= 3) {
+                voteStars = `
+                <div class="row">
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starHalf.svg"></div>
+                </div>`;
+            }
+            else if (voteAverage >3 && voteAverage <= 4) {
+                voteStars = `
+                <div class="row">
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                </div>`;
+            }
+            else if (voteAverage >5 && voteAverage <= 6) {
+                voteStars = `
+                <div class="row">
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starHalf.svg"></div>
+                </div>`;
+            }
+            else if (voteAverage >6 && voteAverage <= 7) {
+                voteStars = `
+                <div class="row">
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                </div>`;
+            }
+            else if (voteAverage >7 && voteAverage <= 8) {
+                voteStars = `
+                <div class="row">
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starHalf.svg"></div>
+                </div>`;
+            }
+            else if (voteAverage >8 && voteAverage <= 9) {
+                voteStars = `
+                <div class="row">
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                </div>`;
+            }
+            else if (voteAverage >9 && voteAverage <= 10) {
+                voteStars = `
+                <div class="row">
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starHalf.svg"></div>
+                </div>`;
+            }else if (voteAverage == 10) {
+                voteStars = `
+                <div class="row">
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                    <div class="col-2"><img class="stars" src="public/assets/img/starFull.svg"></div>
+                </div>`;
+            }
 
             cardMovie.innerHTML += `
                         <div id="cardMovieCss" class="col-6 col-md-3">
@@ -34,22 +114,21 @@ fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=7f1f1402996361135b86
                                 <img src="https://image.tmdb.org/t/p/w500${posterPath}">
                                 </div>
                                 <div class="col-8">
-                                    <div id="titleMovie" class="row h-50">
-                                        <div class="col h-50">
+                                    <div id="titleMovie" class="row">
+                                        <div class="col ">
                                             <strong>${originalTitle}</strong>
                                         </div>
                                     </div>
-                                    <div id="textMovie" class="row h-40">
-                                        <div class="col h-100">
-                                        ${overview.substring(0, 80)}...
+                                    <div id="textMovie" class="row">
+                                        <div class="col ">
+                                        ${overview.substring(0, 90)}...
                                         </div>
                                     </div>
-                                    <div id="voteAverage" class="row h-10">
-                                        <div id="starsMovie" class="col">
+                                    <div id="voteAverage" class="row ">
+                                        <div id="starsMovie" class="col-12">
 
-                                        </div>
-                                        <div id="noteMovie" class="col">
-                                            ${voteAverage}
+                                        ${voteStars}
+
                                         </div>
                                     </div>
                                 </div>
