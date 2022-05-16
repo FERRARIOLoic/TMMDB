@@ -1,0 +1,34 @@
+html{
+    height:100%;
+}
+body{
+    height:100%;
+    margin:0;
+    padding:0; 
+}
+
+img {
+    width: 100%;
+}
+
+#cardMovieCss {
+    padding: 15px;
+    background-color:lightgray;
+}
+
+#imgMovie {
+    padding:0px 0px 0px 15px;
+}
+
+#titleMovie {
+    height:50%;
+}
+
+#textMovie {
+    font-size: 10px;
+    height:30%;
+}
+
+#voteAverage {
+    height: 20%;
+}
