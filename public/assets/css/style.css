@@ -1,6 +1,7 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -9,47 +10,106 @@ html {
 
 body {
     height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
-img {
-    width: 100%;
+
+@media screen and (max-width:576px) {
+
+    img {
+        width: 100%;
+    }
+
+    #cardMovieCss {
+        margin: 5px 5px 5px 5px;
+        padding: 5px 0px 5px 20px;
+        border: 2px solid;
+        /* background-color: lightcyan; */
+    }
+
+    #imgMovie {
+        border: 2px solid black;
+        width: 30%;
+        padding: 0px 0px 0px 0px;
+    }
+
+    #infoMovie {
+        /* padding: 10px; */
+    }
+
+    #titleMovie {
+        height: 50%;
+        /* padding: 0px 0px 0px 0px; */
+    }
+
+    #textMovie {
+        font-size: 10px;
+        height: 30%;
+        /* padding: 0px 0px 0px 0px; */
+    }
+
+    #voteAverage {
+        height: 20%;
+        /* width:90%; */
+        text-align: left;
+        /* padding: 0px 0px 0px 0px; */
+        /* background-color: blue; */
+    }
+
+    #starsMovie {
+        text-align: left;
+    }
+
+    .stars {
+        width: 100%;
+    }
 }
 
-#cardMovieCss {
-    padding: 15px;
-    background-color: lightcyan;
-}
 
-#imgMovie {
-    border:2px solid black;
-    padding: 0px 0px 0px 0px;
-}
+@media screen and (min-width:576px) {
 
-#titleMovie {
-    height: 50%;
-    padding: 0px 20px 0px 0px;
-}
+    img {
+        width: 100%;
+    }
 
-#textMovie {
-    font-size: 10px;
-    height: 30%;
-    padding: 0px 20px 0px 0px;
-}
+    #cardMovieCss {
+        padding: 15px;
+        background-color: lightcyan;
+    }
 
-#voteAverage {
-    height: 20%;
-    /* width:90%; */
-    text-align: left;
-    padding: 0px 20px 0px 0px;
-    /* background-color: blue; */
-}
+    #imgMovie {
+        border: 2px solid black;
+        width: 40%;
+        padding: 0px 0px 0px 0px;
+    }
 
-#starsMovie {
-    text-align: left;
-}
+    #infoMovie {
+        padding: 10px;
+    }
 
-.stars {
-    width:200%;
+    #titleMovie {
+        height: 50%;
+        padding: 0px 20px 0px 0px;
+    }
+
+    #textMovie {
+        font-size: 10px;
+        height: 30%;
+        padding: 0px 20px 0px 0px;
+    }
+
+    #voteAverage {
+        height: 20%;
+        /* width:90%; */
+        text-align: left;
+        padding: 0px 20px 0px 0px;
+        /* background-color: blue; */
+    }
+
+    #starsMovie {
+        text-align: left;
+    }
+
+    .stars {
+        width: 200%;
+    }
 }
